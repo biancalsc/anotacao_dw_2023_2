@@ -1,29 +1,53 @@
+/* 3 -
+Mais um trecho que você não precisara mexer, Mas essa parte é o que cria o banco de dados basicamente
+
+Agora vamos pra algo mais importante, siga para ./entities/Color.ts
+*/
+
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
-dotenv.config();
 
-//https://orkhan.gitbook.io/typeorm/docs/data-source-options
+dotenv.config();
+// Configura as variáveis de ambiente a partir do arquivo .env.
+
+// Cria uma instância do DataSource para gerenciar a fonte de dados do banco de dados.
 const AppDataSource = new DataSource({
-    database: process.env.DBNAME || "bdaula.db",
-    type: "sqlite",
-    // true indica que o schema do BD será criado a cada vez que a aplicação inicializar
-    // deixe false ao usar migrations
-    synchronize: false, 
-    logging: false, // true indica que as consultas e erros serão exibidas no terminal
-    entities: ["src/entities/*.ts"], // entidades que serão convertidas em tabelas
-    migrations: ["src/migrations/*.ts"], // local onde estarão os arquivos de migração
-    subscribers: [],
-    maxQueryExecutionTime: 2000 // 2 seg.
+  // Nome do banco de dados, obtido das variáveis de ambiente, com valor padrão "bdaula.db".
+  database: process.env.DBNAME || "bdaula.db",
+
+  // Tipo de banco de dados, neste caso, SQLite.
+  type: "sqlite",
+
+  // Define se o esquema do banco de dados deve ser criado a cada inicialização da aplicação.
+  // Configurado como false para não recriar o esquema ao usar migrações.
+  synchronize: false,
+
+  // Define se as consultas e erros devem ser exibidos no terminal. Configurado como false para desativar o logging.
+  logging: false,
+
+  // Array de caminhos dos arquivos TypeScript que contêm as entidades convertidas em tabelas no banco de dados.
+  entities: ["src/entities/*.ts"],
+
+  // Array de caminhos dos arquivos TypeScript de migração.
+  migrations: ["src/migrations/*.ts"],
+
+  // Array vazio, pois nenhum subscriber está sendo definido aqui.
+  subscribers: [],
+
+  // Tempo máximo de execução de consulta em milissegundos, configurado como 2000 (2 segundos).
+  maxQueryExecutionTime: 2000,
 });
 
-// https://orkhan.gitbook.io/typeorm/docs/data-source
-AppDataSource
-    .initialize()
-    .then(() => {
-        console.log("Data Source inicializado!")
-    })
-    .catch((e) => {
-        console.error("Erro na inicialização do Data Source:", e)
-    });
+// Inicializa a instância do DataSource.
+AppDataSource.initialize()
+  .then(() => {
+    // Exibe mensagem no console se a inicialização foi bem-sucedida.
+    console.log("Data Source inicializado!");
+  })
+  .catch((e) => {
+    // Exibe mensagem de erro no console se ocorreu algum problema durante a inicialização.
+    console.error("Erro na inicialização do Data Source:", e);
+  });
 
+// Exporta a instância do DataSource para ser utilizada em outros módulos da aplicação.
 export default AppDataSource;

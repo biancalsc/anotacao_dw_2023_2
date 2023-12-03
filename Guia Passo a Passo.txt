@@ -1,0 +1,49 @@
+0 - O formato desse guia vai seguir por números aqui nesse txt
+e em comentários no texto, apenas siga os números e você vai
+entender a ordem
+
+1 - O primeiro passo dessa prova é rodar e entender o backend.
+Comece com o "npm i" para instalar as dependencias e depois pode
+usar um "npm run start" no mesmo, já que o Arley não
+permite alteração no backend dessa prova e o start é mais apro-
+priado para esse cenário do que o dev:
+passo 2 em Prova-B-Back/src/index.ts
+
+
+7 - Depois de você ter entendido o backend vamos para o front
+Segue o link para caso queira ver a prova em questão:
+https://drive.google.com/file/d/10-AgEkFyWul3woZV41bYoyiXu-3ZDftW/view?usp=sharing
+
+Primeiro você precisa criar um projeto react typescript:
+Vá para o local onde você vai criar a pasta do projeto e insira:
+
+npx create-react-app <nome-do-projeto> --template typescript
+
+em seguida pode abrir a pasta normalmente com o VS Code
+
+Deixe a pasta com a seguinte estrutura de início:
+
+public
+	index.html
+src
+	App.tsx
+	index.tsx
+	react-app-env.d.ts
+.env
+.gitignore
+package-lock.json
+package.json
+README.md
+ts.config.json (pra criar esse basta usar "tsc --init" no terminal)
+
+obs: Alguns dos arquivos que você vai deletar estarão sendo importados por outros
+Ache o que está importando eles e depois apague todos os imports de arquivos deletados
+
+Depois disso vá para .Prova-B-Front/src/App.tsx
+
+20 - Qualquer dúvida sinta-se livre para me chamar, estou disponivel a quase qualquer momento
+e espero que você consiga (tenho certeza que você vai ir bem), novamente não se
+esqueça, eu tô livre pra te ajudar, isso não me incomoda ou algo assim caso você acabe pensando
+dessa forma, na verdade é até bom pra me ocupar, e recentemente isso é tudo que eu preciso,
+minha sugestão é você tentar entender a prova E (usando essa como base) e talvez fazer algum outro modelo,
+se precisar só chamar e eu faço com você, boa sorte Bia ♡
